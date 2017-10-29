@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+
+
+<!-- HTML-Seite für die Raumbelegungen nach eigener Vorstellung 
+		Mathias Baumgartinger 27.10.2017
+	Für später: VERGLEICHSWEBSITE: https://tiss.tuwien.ac.at/events/selectRoom.xhtml?dswid=7672&dsrid=699
+-->
+
+<html lang="en">
+
+	<head>
+
+		<meta charset="UTF-8">
+
+		<!-- Title and icon -->
+		<title>FH Technikum Wien - Room Occupancy</title>
+		<link rel="icon" href="________________" >
+		
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+		
+		<link rel="stylesheet" type="text/css" href="______________________" />
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/webrtc-adapter/3.3.3/adapter.min.js"></script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.1.10/vue.min.js"></script>
+		<script type="text/javascript" src="https://rawgit.com/schmich/instascan-builds/master/instascan.min.js"></script>
+
+	</head>
+
+	<body>
+
+		<!-- Navigation list -->
+		<nav>
+			<h1>FH Technikum Wien - Room Occupancy</h1> <!-- Irgendein Icon oder so wäre da cool finde ich -->
+
+			<ul>
+				<li><a href="_______">Startseite</a></li>
+				<li><a href="_________">FH-Information</a></li>
+				<li><a href="__________">Room Occupancy</a></li>
+			</ul>
+		</nav>		
+
+		<!-- Room Occupancy -->
+
+		<span id="start" class="anchor"></span>
+
+		<header class="start">
+		
+			<div class="welcome">
+			<p>.</br>
+			.</br>.</br>.</br>.</br>.</br>.</br>.</br>.</br>.</br>.</br></br></br></br></br></br></br></br></br>
+			</br></br></br></br></br><h1>eventuell irgendeine Grafik um dem Muster der anderen Seiten zu ähneln</h1>
+			
+			<!-- Weil bei den anderen Seiten der "Startscreen" der Website ja auch Bild/Video ist. -->
+			
+			<img img class="_____" src="___________________" alt="Room Occupancy">
+			
+			.</br>.</br>.</br>.</br>.</br>.</br>.</br>.</br>.</br>.</br>.</br>.</br>.</br>.</br>
+			</p>
+			</div>
+			
+			<h1 class="welcome"> Room Occupancy </h1>
+
+		</header>
+
+		<main>
+
+			<!-- Raumbelegungen		
+				Leider ist es halt sehr schwer hier irgendetwas zu machen ohne den ganzen Blödsinn mit den Datenbanken
+				drauf zu haben. Werde mich aber wenn gelernt sofort darum kümmern ;-)
+				
+				Einen ersten Scanner habe ich mal probiert, bei mir funktionierts schon probiert mal aus.
+				
+				-->
+
+			<span id="Room Occupancy" class="anchor"></span>
+
+			<section class="Room Occupancy">
+
+				<form action="/action_page.php">
+					First name:<br>
+					<input type="text" name="firstname" value="Mickey"><br>
+					<input type="submit" value="Suche">
+				</form>
+				
+				</br></br>
+				
+				<form action="/action_page.php">
+				  <select name="cars">
+					<option value="1">1</option>
+					<option value="2">2</option>
+					<option value="3">3</option>
+					<option value="4">4</option>
+				  </select>
+				  </br>
+				  <input type="submit">
+				</form>
+				
+				</br></br>
+				
+			 
+				<div id="app">
+				  <div class="sidebar">
+					<section class="cameras">
+					  <h2>Cameras</h2>
+					  <ul>
+						<li v-if="cameras.length === 0" class="empty">No cameras found</li>
+						<li v-for="camera in cameras">
+						  <span v-if="camera.id == activeCameraId" :title="formatName(camera.name)" class="active">{{ formatName(camera.name) }}</span>
+						  <span v-if="camera.id != activeCameraId" :title="formatName(camera.name)">
+							<a @click.stop="selectCamera(camera)">{{ formatName(camera.name) }}</a>
+						  </span>
+						</li>
+					  </ul>
+					</section>
+					<section class="scans">
+					  <h2>Scans</h2>
+					  <ul v-if="scans.length === 0">
+						<li class="empty">No scans yet</li>
+					  </ul>
+					  <transition-group name="scans" tag="ul">
+						<li v-for="scan in scans" :key="scan.date" :title="scan.content">{{ scan.content }}</li>
+					  </transition-group>
+					</section>
+				  </div>
+				  <div class="preview-container">
+					<video id="preview"></video>
+				  </div>
+				</div>
+				<script type="text/javascript" src="app.js"></script>
+			</section>
+
+			<!-- Team section -->
+
+			<span id="maps" class="anchor"></span>
+
+			<section class="maps">
+
+				
+				
+
+			</section>
+			
+		</main>
+
+		<footer>
+
+			<!-- Further links and general information -->
+
+			<div>
+				<h4>Soziale Netze</h4>
+
+					<ul>
+						<li><a href="https://www.facebook.com">Facebook</a></li>
+						<li><a href="https://www.twitter.com/">Twitter</a></li>
+						<li><a href="https://www.instagram.com">Instagram</a></li>
+					</ul>
+			</div>
+
+			<div>
+				<h4>Kontakt</h4>
+
+					<ul>
+						<li>Adresse</li>
+						<li><a href="http://www.technikum-wien.at">Webpräsenz</a></li>
+						<li><a href="mailto:______" style="text-decoration:none">Mail</a></li>
+					</ul>
+			</div>
+
+			<div>
+				<h4>Terms of Use</h4>
+
+					<ul>
+						<li>Copyright</li>
+						<li>Privacy Policy</li>
+						<li>Impressum</li>
+					</ul>
+			</div>
+
+			<div>
+				<h4>About</h4>
+
+					<ul>
+						<li>Technikum Wien</li>
+						<li>Bachelor Informatik</li>
+						<li>1200 Wien</li>
+					</ul>
+			</div>
+
+		</footer>
+
+	</body>
+	
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+</html>
